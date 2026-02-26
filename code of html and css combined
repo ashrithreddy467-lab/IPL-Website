@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPL 2025 | Official League</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ff6b35;--amber:#ffb347;--glass:rgba(255,255,255,0.06);--border:rgba(255,255,255,0.12);}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:linear-gradient(rgba(0,0,0,0.88),rgba(0,0,0,0.92)),url("https://i.pinimg.com/736x/ee/da/16/eeda16b77f4bce9bcd6270c75ecfee65.jpg") no-repeat center center fixed;background-size:cover;color:#fff;overflow-x:hidden;}
+
+/* TICKER */
+.ticker-wrap{background:linear-gradient(90deg,var(--orange),var(--amber),var(--orange));padding:.35rem 0;overflow:hidden;white-space:nowrap;}
+.ticker-track{display:inline-block;animation:ticker 42s linear infinite;font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#000;}
+.ticker-track span{margin:0 2rem;}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HEADER */
+header{position:sticky;top:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(20px);display:flex;justify-content:space-between;align-items:center;padding:.8rem 2.5rem;z-index:1000;border-bottom:1px solid rgba(255,107,53,0.2);box-shadow:0 4px 30px rgba(0,0,0,0.5);}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:4px;background:linear-gradient(90deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 12px rgba(255,107,53,.45));}
+nav{display:flex;align-items:center;gap:.15rem;flex-wrap:wrap;}
+nav a{text-decoration:none;color:rgba(255,255,255,.7);padding:.4rem .8rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;border-radius:6px;transition:all .25s;position:relative;}
+nav a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:2px;transition:.3s;opacity:0;}
+nav a:hover{color:#fff;background:rgba(255,107,53,.1);}
+nav a.active{color:var(--orange);background:rgba(255,107,53,.12);}
+nav a.active::after{left:10%;right:10%;opacity:1;}
+.live-badge{display:flex;align-items:center;gap:.5rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1px;color:rgba(255,255,255,.45);padding-left:1.2rem;border-left:1px solid rgba(255,255,255,.1);white-space:nowrap;}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:pulse 1.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
+/* PAGE SYSTEM */
+.page{display:none;}
+.page.active{display:block;animation:pageIn .4s cubic-bezier(.22,.68,0,1.2);}
+@keyframes pageIn{from{opacity:0;transform:translateY(16px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* SECTION */
+section{padding:4rem 2rem;max-width:1300px;margin:auto;}
+.section-eyebrow{text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,179,71,.6);margin-bottom:.35rem;}
+h2{text-align:center;font-family:'Bebas Neue',sans-serif;font-size:2.9rem;letter-spacing:4px;margin-bottom:.4rem;background:linear-gradient(90deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(255,107,53,.25));}
+.section-divider{width:55px;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:3px;margin:1rem auto 3rem;}
+
+/* HERO */
+.hero{text-align:center;padding:5rem 2rem 4rem;position:relative;}
+.hero-badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);border:1px solid rgba(255,107,53,.4);padding:.32rem 1.1rem;border-radius:20px;background:rgba(255,107,53,.08);margin-bottom:1.4rem;animation:slideDown .6s ease both;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,8vw,6.5rem);letter-spacing:6px;line-height:1;background:linear-gradient(135deg,#fff 30%,var(--amber) 70%,var(--orange) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1.2rem;filter:drop-shadow(0 0 40px rgba(255,107,53,.2));animation:slideDown .7s .1s ease both;}
+.hero p{max-width:580px;margin:auto;font-size:1.02rem;line-height:1.75;color:rgba(255,255,255,.6);animation:slideDown .7s .2s ease both;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.btn{display:inline-block;margin-top:2.2rem;padding:.88rem 2.8rem;border-radius:50px;background:linear-gradient(45deg,var(--orange),var(--amber));color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:.35s;position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(255,107,53,.35);animation:slideDown .7s .3s ease both;}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 40%,rgba(255,255,255,.25) 50%,transparent 60%);transform:translateX(-100%);transition:.55s;}
+.btn:hover{transform:scale(1.07);box-shadow:0 6px 30px rgba(255,107,53,.55);}
+.btn:hover::before{transform:translateX(100%);}
+
+/* HERO STATS */
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:3.5rem;flex-wrap:wrap;animation:slideDown .7s .4s ease both;}
+.hero-stat{text-align:center;}
+.hero-stat-val{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:2px;background:linear-gradient(90deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.hero-stat-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.3rem;}
+.hero-stat-sep{width:1px;background:rgba(255,255,255,.1);align-self:stretch;margin:.3rem 0;}
+
+/* TEAMS */
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem;}
+.team-link{text-decoration:none;color:inherit;}
+.team-card{background:var(--glass);backdrop-filter:blur(15px);border-radius:18px;padding:1.8rem 1.4rem;text-align:center;transition:all .4s cubic-bezier(.22,.68,0,1.2);border:1px solid var(--border);position:relative;overflow:hidden;}
+.team-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,53,.08) 0%,transparent 60%);opacity:0;transition:.4s;}
+.team-card:hover::before{opacity:1;}
+.team-card:hover{transform:translateY(-12px) scale(1.03);box-shadow:0 20px 50px rgba(0,0,0,.7),0 0 30px rgba(255,107,53,.12);border-color:rgba(255,107,53,.35);}
+.team-card img{width:78px;height:78px;border-radius:50%;margin-bottom:.9rem;border:2px solid rgba(255,107,53,.5);box-shadow:0 0 18px rgba(255,107,53,.18);transition:.4s;object-fit:cover;}
+.team-card:hover img{box-shadow:0 0 28px rgba(255,107,53,.4);transform:scale(1.08);}
+.team-card h3{font-family:'Barlow Condensed',sans-serif;font-size:.92rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.35rem;color:var(--amber);}
+.team-card p{font-size:.78rem;color:rgba(255,255,255,.52);line-height:1.5;}
+
+/* SCHEDULE */
+.schedule-grid{display:flex;flex-direction:column;gap:.9rem;}
+.match-card{background:var(--glass);backdrop-filter:blur(14px);border:1px solid rgba(255,107,53,.18);border-radius:14px;padding:1.05rem 1.5rem;display:grid;grid-template-columns:105px 1fr auto;align-items:center;gap:1.4rem;transition:all .3s ease;position:relative;overflow:hidden;}
+.match-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--orange),var(--amber));border-radius:3px 0 0 3px;}
+.match-card:hover{transform:translateX(7px);background:rgba(255,255,255,.09);border-color:rgba(255,107,53,.38);box-shadow:0 5px 22px rgba(255,107,53,.1);}
+.match-date-block{text-align:center;}
+.match-date-block .day,.match-date-block .month{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:2.5px;color:var(--amber);opacity:.8;}
+.match-date-block .date{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:#fff;line-height:1.1;}
+.match-teams{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;}
+.team-name{font-size:.97rem;font-weight:700;color:#fff;}
+.team-abbr{display:inline-block;background:linear-gradient(45deg,var(--orange),var(--amber));color:#000;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.7rem;padding:.17rem .52rem;border-radius:5px;}
+.vs-badge{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:2px;}
+.match-meta{text-align:right;min-width:155px;}
+.match-time{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--amber);}
+.match-venue{font-size:.73rem;color:rgba(255,255,255,.43);margin-top:.22rem;line-height:1.4;}
+.match-number{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,107,53,.58);margin-top:.32rem;}
+.double-header-label{display:inline-block;background:rgba(255,179,71,.1);color:var(--amber);font-family:'Barlow Condensed',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.1rem .5rem;border-radius:20px;border:1px solid rgba(255,179,71,.28);margin-top:.28rem;}
+.schedule-note{text-align:center;font-size:.78rem;color:rgba(255,255,255,.32);margin-top:2rem;}
+.date-group-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:3px;color:rgba(255,107,53,.52);padding:.28rem 0;border-bottom:1px solid rgba(255,107,53,.1);margin-bottom:-.05rem;}
+
+/* STATS */
+.stats-intro{text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;letter-spacing:1px;color:rgba(255,255,255,.45);margin-top:-1.5rem;margin-bottom:3rem;}
+.champion-banner{background:linear-gradient(135deg,rgba(255,107,53,.14),rgba(255,179,71,.07));border:1px solid rgba(255,107,53,.38);border-radius:20px;padding:2rem 2.5rem;display:flex;align-items:center;gap:2rem;margin-bottom:3rem;position:relative;overflow:hidden;}
+.champion-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber),var(--orange));}
+.champion-banner::after{content:'🏆';position:absolute;right:2rem;font-size:5rem;opacity:.1;}
+.champion-badge{background:linear-gradient(45deg,var(--orange),var(--amber));color:#000;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:.28rem .9rem;border-radius:20px;display:inline-block;margin-bottom:.55rem;}
+.champion-banner h3{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:2px;color:#fff;margin-bottom:.28rem;}
+.champion-banner p{font-size:.86rem;color:rgba(255,255,255,.52);line-height:1.6;}
+.stats-columns{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-bottom:3rem;}
+.stats-table-block h3{font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;letter-spacing:1px;color:var(--amber);margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem;}
+.cap-icon{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:800;padding:.18rem .6rem;border-radius:6px;letter-spacing:1px;}
+.orange-cap{background:linear-gradient(45deg,var(--orange),var(--amber));color:#000;}
+.purple-cap{background:linear-gradient(45deg,#7b2d8b,#c45fd6);color:#fff;}
+.player-row{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:.82rem 1.05rem;margin-bottom:.6rem;transition:.3s;}
+.player-row:hover{background:rgba(255,255,255,.08);border-color:rgba(255,107,53,.22);transform:translateX(5px);}
+.player-rank{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:rgba(255,179,71,.35);width:22px;text-align:center;flex-shrink:0;}
+.player-rank.gold{color:var(--amber);}
+.player-info{flex:1;}
+.player-name{font-size:.9rem;font-weight:700;color:#fff;}
+.player-team{font-size:.7rem;color:rgba(255,255,255,.38);margin-top:.1rem;}
+.player-stat{text-align:right;}
+.stat-value{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:1px;color:var(--orange);}
+.stat-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.28);}
+.stat-detail{font-size:.67rem;color:rgba(255,255,255,.33);margin-top:.06rem;}
+.milestones{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem;}
+.milestone-card{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:1.2rem 1.3rem;transition:.3s;position:relative;overflow:hidden;}
+.milestone-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--amber));transform:scaleX(0);transition:.35s;transform-origin:left;}
+.milestone-card:hover::after{transform:scaleX(1);}
+.milestone-card:hover{background:rgba(255,255,255,.09);border-color:rgba(255,107,53,.28);transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.5);}
+.milestone-label{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,107,53,.62);margin-bottom:.42rem;}
+.milestone-value{font-family:'Barlow Condensed',sans-serif;font-size:1.12rem;font-weight:700;color:#fff;margin-bottom:.18rem;}
+.milestone-desc{font-size:.73rem;color:rgba(255,255,255,.4);line-height:1.55;}
+.section-sub-title{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;color:var(--amber);margin:2.5rem 0 1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;}
+
+/* RESULTS */
+.results-grid{display:flex;flex-direction:column;gap:.9rem;}
+.result-card{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:.95rem 1.4rem;display:grid;grid-template-columns:85px 1fr auto;align-items:center;gap:1.1rem;transition:.3s;position:relative;overflow:hidden;}
+.result-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px;}
+.result-card.win-left::before{background:linear-gradient(180deg,#22c55e,#16a34a);}
+.result-card.win-right::before{background:linear-gradient(180deg,var(--orange),var(--amber));}
+.result-card:hover{background:rgba(255,255,255,.08);transform:translateX(6px);}
+.result-match-no .match-num{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,107,53,.62);}
+.result-match-no .match-date-sm{font-size:.73rem;color:rgba(255,255,255,.36);margin-top:.16rem;}
+.result-teams{display:flex;flex-direction:column;gap:.28rem;}
+.result-divider{height:1px;background:rgba(255,255,255,.06);margin:.06rem 0;}
+.result-team-row{display:flex;align-items:center;gap:.55rem;}
+.result-team-row .abbr{font-family:'Barlow Condensed',sans-serif;font-size:.67rem;font-weight:800;padding:.13rem .42rem;border-radius:5px;background:rgba(255,255,255,.08);color:var(--amber);min-width:38px;text-align:center;}
+.result-team-row .team-nm{font-size:.84rem;font-weight:600;color:#fff;}
+.result-team-row .score{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:.98rem;font-weight:700;color:#fff;}
+.result-team-row.winner .team-nm,.result-team-row.winner .score{color:#4ade80;}
+.result-team-row.loser .team-nm,.result-team-row.loser .score{opacity:.44;}
+.result-margin{text-align:right;min-width:125px;}
+.win-by{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;color:var(--amber);}
+.result-venue{font-size:.63rem;color:rgba(255,255,255,.3);margin-top:.2rem;}
+
+/* POINTS TABLE */
+.points-table-wrap{overflow-x:auto;border-radius:16px;border:1px solid var(--border);}
+.points-table{width:100%;border-collapse:collapse;font-size:.86rem;}
+.points-table thead tr{background:rgba(255,107,53,.12);}
+.points-table th{padding:.88rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.62rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--amber);font-weight:700;white-space:nowrap;}
+.points-table th:first-child{text-align:left;padding-left:1.2rem;}
+.points-table td{padding:.75rem 1rem;text-align:center;border-bottom:1px solid rgba(255,255,255,.05);color:rgba(255,255,255,.8);white-space:nowrap;}
+.points-table td:first-child{text-align:left;padding-left:1rem;}
+.points-table tbody tr{transition:.22s;}
+.points-table tbody tr:hover{background:rgba(255,107,53,.05);}
+.points-table tbody tr.playoff-zone{border-left:3px solid rgba(34,197,94,.55);}
+.points-table tbody tr.eliminated{opacity:.46;}
+.pos-num{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-family:'Barlow Condensed',sans-serif;font-size:.76rem;font-weight:800;}
+.pos-num.gold{background:linear-gradient(135deg,var(--amber),var(--orange));color:#000;}
+.pos-num.silver{background:rgba(255,255,255,.18);color:#fff;}
+.pos-num.bronze{background:rgba(205,127,50,.32);color:var(--amber);}
+.pos-num.q{background:rgba(34,197,94,.18);color:#4ade80;}
+.pos-num.out{background:rgba(255,255,255,.07);color:rgba(255,255,255,.36);}
+.team-cell{display:flex;align-items:center;gap:.55rem;}
+.team-short{font-weight:700;color:#fff;}
+.team-full-name{font-size:.7rem;color:rgba(255,255,255,.36);}
+.nrr-pos{color:#4ade80;font-weight:600;}
+.nrr-neg{color:#f87171;font-weight:600;}
+.pts-val{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:1px;color:var(--orange);}
+.playoff-tag{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:.08rem .4rem;border-radius:4px;margin-left:.35rem;background:rgba(34,197,94,.12);color:#4ade80;border:1px solid rgba(34,197,94,.22);vertical-align:middle;}
+.table-legend{display:flex;gap:1.4rem;margin-top:.9rem;font-size:.68rem;font-family:'Barlow Condensed',sans-serif;color:rgba(255,255,255,.36);flex-wrap:wrap;letter-spacing:.5px;}
+.legend-dot{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:.32rem;vertical-align:middle;}
+
+/* PROFILES */
+.profiles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:1.4rem;}
+.profile-card{background:var(--glass);border:1px solid var(--border);border-radius:18px;padding:1.45rem;transition:all .35s cubic-bezier(.22,.68,0,1.2);position:relative;overflow:hidden;}
+.profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),var(--amber));transform:scaleX(0);transition:.35s;transform-origin:left;}
+.profile-card::after{content:'';position:absolute;top:0;right:0;width:70px;height:70px;border-radius:0 18px 0 70px;background:linear-gradient(135deg,rgba(255,107,53,.08),transparent);}
+.profile-card:hover::before{transform:scaleX(1);}
+.profile-card:hover{transform:translateY(-8px);background:rgba(255,255,255,.09);border-color:rgba(255,107,53,.28);box-shadow:0 16px 40px rgba(0,0,0,.6);}
+.profile-header{display:flex;align-items:center;gap:.95rem;margin-bottom:.95rem;}
+.profile-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--amber));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:#000;flex-shrink:0;border:2px solid rgba(255,107,53,.38);box-shadow:0 0 14px rgba(255,107,53,.18);}
+.p-name{font-size:.98rem;font-weight:700;color:#fff;}
+.p-role{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;color:rgba(255,179,71,.8);margin-top:.08rem;}
+.p-team{font-size:.65rem;color:rgba(255,255,255,.36);}
+.profile-bio{font-size:.76rem;color:rgba(255,255,255,.48);line-height:1.65;margin-bottom:.95rem;border-top:1px solid rgba(255,255,255,.07);padding-top:.75rem;}
+.profile-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;}
+.profile-stat-box{background:rgba(255,255,255,.05);border-radius:8px;padding:.5rem .38rem;text-align:center;border:1px solid rgba(255,255,255,.05);}
+.ps-val{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:1px;color:var(--orange);}
+.ps-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.54rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.3);margin-top:.08rem;}
+
+/* AWARDS */
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:1.1rem;}
+.award-card{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.4rem;transition:.3s;position:relative;overflow:hidden;}
+.award-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--amber));border-radius:14px 14px 0 0;}
+.award-card:hover{background:rgba(255,255,255,.09);border-color:rgba(255,107,53,.28);transform:translateY(-6px);box-shadow:0 12px 35px rgba(0,0,0,.5);}
+.award-icon{font-size:1.75rem;margin-bottom:.55rem;}
+.award-title{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,107,53,.62);margin-bottom:.28rem;}
+.award-winner{font-size:1.02rem;font-weight:800;color:#fff;margin-bottom:.13rem;}
+.award-team{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;color:var(--amber);margin-bottom:.38rem;}
+.award-detail{font-size:.72rem;color:rgba(255,255,255,.4);line-height:1.55;}
+
+/* POLL */
+.poll-wrap{max-width:660px;margin:0 auto;}
+.poll-question{text-align:center;font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:3px;color:#fff;margin-bottom:.38rem;}
+.poll-sub{text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:1px;color:rgba(255,255,255,.32);margin-bottom:1.9rem;}
+.poll-options{display:flex;flex-direction:column;gap:.8rem;}
+.poll-option{position:relative;background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:.88rem 1.15rem;cursor:pointer;transition:.3s;overflow:hidden;user-select:none;}
+.poll-option:hover{border-color:rgba(255,107,53,.4);background:rgba(255,255,255,.08);}
+.poll-option.selected{border-color:var(--orange);background:rgba(255,107,53,.1);}
+.poll-bar{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(255,107,53,.17),rgba(255,179,71,.06));border-radius:12px;transition:width .7s ease;pointer-events:none;}
+.poll-option-inner{position:relative;display:flex;align-items:center;gap:.75rem;}
+.poll-team-abbr{background:linear-gradient(45deg,var(--orange),var(--amber));color:#000;font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:800;padding:.18rem .48rem;border-radius:6px;min-width:42px;text-align:center;flex-shrink:0;}
+.poll-team-name{font-size:.88rem;font-weight:600;color:#fff;flex:1;}
+.poll-pct{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:1px;color:var(--amber);min-width:42px;text-align:right;}
+.poll-count{font-size:.6rem;color:rgba(255,255,255,.28);margin-top:.08rem;text-align:right;}
+.poll-voted-note{text-align:center;margin-top:1.4rem;font-size:.78rem;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;color:rgba(255,255,255,.32);}
+.poll-voted-note span{color:var(--amber);font-weight:700;}
+
+/* FOOTER */
+footer{text-align:center;padding:2.5rem 2rem;border-top:1px solid rgba(255,107,53,.14);background:rgba(0,0,0,.3);}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;letter-spacing:4px;background:linear-gradient(90deg,var(--orange),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.45rem;}
+footer p{font-size:.75rem;color:rgba(255,255,255,.28);letter-spacing:.5px;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{padding:.75rem 1.1rem;flex-wrap:wrap;gap:.5rem;}
+  nav a{font-size:.7rem;padding:.33rem .55rem;}
+  .live-badge{display:none;}
+  .stats-columns{grid-template-columns:1fr;}
+  .champion-banner{flex-direction:column;text-align:center;}
+}
+@media(max-width:700px){
+  .match-card{grid-template-columns:1fr;gap:.75rem;padding:1.05rem;}
+  .match-meta{text-align:left;}
+  .result-card{grid-template-columns:1fr;gap:.65rem;}
+  .result-margin{text-align:left;}
+  h2{font-size:2.1rem;}
+  .hero h1{font-size:3rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>🏆 IPL 2025 Champions: Royal Challengers Bengaluru</span>
+    <span>·</span>
+    <span>🟠 Orange Cap: B Sai Sudharsan — 759 runs</span>
+    <span>·</span>
+    <span>🟣 Purple Cap: Prasidh Krishna — 25 wickets</span>
+    <span>·</span>
+    <span>⭐ MVP: Suryakumar Yadav — 717 runs @ SR 167.91</span>
+    <span>·</span>
+    <span>⚡ Fastest 50: Nicholas Pooran — 16 balls</span>
+    <span>·</span>
+    <span>🏏 Season Opener: KKR beat RCB by 11 runs at Eden Gardens</span>
+    <span>·</span>
+    <span>🏆 IPL 2025 Champions: Royal Challengers Bengaluru</span>
+    <span>·</span>
+    <span>🟠 Orange Cap: B Sai Sudharsan — 759 runs</span>
+    <span>·</span>
+    <span>🟣 Purple Cap: Prasidh Krishna — 25 wickets</span>
+    <span>·</span>
+    <span>⭐ MVP: Suryakumar Yadav — 717 runs @ SR 167.91</span>
+    <span>·</span>
+    <span>⚡ Fastest 50: Nicholas Pooran — 16 balls</span>
+    <span>·</span>
+    <span>🏏 Season Opener: KKR beat RCB by 11 runs at Eden Gardens</span>
+    <span>·</span>
+  </div>
+</div>
+
+<header>
+  <div class="logo">IPL 2025</div>
+  <nav>
+    <a href="#" class="nav-link active" data-page="home">Home</a>
+    <a href="#" class="nav-link" data-page="teams">Teams</a>
+    <a href="#" class="nav-link" data-page="schedule">Schedule</a>
+    <a href="#" class="nav-link" data-page="results">Results</a>
+    <a href="#" class="nav-link" data-page="standings">Standings</a>
+    <a href="#" class="nav-link" data-page="profiles">Players</a>
+    <a href="#" class="nav-link" data-page="awards">Awards</a>
+    <a href="#" class="nav-link" data-page="stats">Stats</a>
+    <a href="#" class="nav-link" data-page="poll">Fan Poll</a>
+  </nav>
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    <span id="liveClock">--:-- --</span>
+  </div>
+</header>
+
+<!-- HOME -->
+<div class="page active" data-page="home">
+<section class="hero">
+  <div class="hero-badge">🏏 Season 2025 · Official Site</div>
+  <h1>Indian Premier League</h1>
+  <p>World-class T20 cricket. Electrifying stadiums. Legendary performances. The most exciting cricket league on the planet.</p>
+  <a href="#" class="btn nav-link" data-page="teams">Explore Teams</a>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-val" data-count="74">0</div><div class="hero-stat-lbl">Matches Played</div></div>
+    <div class="hero-stat-sep"></div>
+    <div class="hero-stat"><div class="hero-stat-val" data-count="10">0</div><div class="hero-stat-lbl">Teams</div></div>
+    <div class="hero-stat-sep"></div>
+    <div class="hero-stat"><div class="hero-stat-val" data-count="759">0</div><div class="hero-stat-lbl">Top Score (runs)</div></div>
+    <div class="hero-stat-sep"></div>
+    <div class="hero-stat"><div class="hero-stat-val" data-count="25">0</div><div class="hero-stat-lbl">Top Wickets</div></div>
+  </div>
+</section>
+</div>
+
+<!-- TEAMS -->
+<div class="page" data-page="teams">
+<section id="teams">
+  <div class="section-eyebrow">IPL 2025</div>
+  <h2>All 10 Teams</h2>
+  <div class="section-divider"></div>
+  <div class="teams">
+    <a href="https://www.mumbaiindians.com" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/736x/78/49/d8/7849d8537abc41e5a7a62314fced1030.jpg"><h3>Mumbai Indians</h3><p>Five-time champions known for dominance and star players.</p></div></a>
+    <a href="https://www.chennaisuperkings.com" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/736x/07/35/c0/0735c0205d1b9e9e6c15ea8c881a0673.jpg"><h3>Chennai Super Kings</h3><p>Iconic yellow army led by legendary leadership.</p></div></a>
+    <a href="https://www.royalchallengers.com" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/736x/54/96/c3/5496c328d02c848b352190a0eee94dc1.jpg"><h3>Royal Challengers Bengaluru</h3><p>🏆 IPL 2025 Champions — Power hitters with one of the biggest fanbases.</p></div></a>
+    <a href="https://www.kkr.in" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/1200x/a9/1a/11/a91a1152e5121ec18f7ab9795753c228.jpg"><h3>Kolkata Knight Riders</h3><p>Dynamic squad with explosive batting and spin attack.</p></div></a>
+    <a href="https://www.sunrisershyderabad.in" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/1200x/4f/5c/76/4f5c7677936223a563557edee12cb01e.jpg"><h3>Sunrisers Hyderabad</h3><p>Strong bowling unit with disciplined performances.</p></div></a>
+    <a href="https://www.gujarattitansipl.com" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/736x/ea/df/52/eadf52ed1b962b079801ed8e912c7e10.jpg"><h3>Gujarat Titans</h3><p>New-age champions with fearless cricket.</p></div></a>
+    <a href="https://www.rajasthanroyals.com" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/1200x/c1/28/07/c12807aaf650f43a0aa9720dd64a14d5.jpg"><h3>Rajasthan Royals</h3><p>The inaugural IPL champions with young talents.</p></div></a>
+    <a href="https://www.punjabkingsipl.in" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/1200x/6c/cc/83/6ccc837e73ac213972a3608eb20f124b.jpg"><h3>Punjab Kings</h3><p>🥈 IPL 2025 Runners-Up — A competitive side with explosive players.</p></div></a>
+    <a href="https://www.delhicapitals.in" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/736x/5d/a6/04/5da6045278a7a7dba53540a9226ac1c7.jpg"><h3>Delhi Capitals</h3><p>A young and energetic team aiming for glory.</p></div></a>
+    <a href="https://www.lucknowsupergiants.in" target="_blank" class="team-link"><div class="team-card"><img src="https://i.pinimg.com/1200x/b1/a4/c9/b1a4c97c71dfa582973de0c9e1a9dbcc.jpg"><h3>Lucknow Super Giants</h3><p>Emerging powerhouse with balanced squad strength.</p></div></a>
+  </div>
+</section>
+</div>
+
+<!-- SCHEDULE -->
+<div class="page" data-page="schedule">
+<section id="schedule">
+  <div class="section-eyebrow">March 2025</div>
+  <h2>Fixtures</h2>
+  <div class="section-divider"></div>
+  <div class="schedule-grid">
+    <div class="date-group-label">Saturday, 22 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">SAT</div><div class="date">22</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">KKR</span><span class="team-name">Kolkata Knight Riders</span><span class="vs-badge">VS</span><span class="team-name">Royal Challengers Bengaluru</span><span class="team-abbr">RCB</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Eden Gardens, Kolkata</div><div class="match-number">Match 1 · Season Opener</div></div></div>
+    <div class="date-group-label">Sunday, 23 March 2025 — Double Header</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">SUN</div><div class="date">23</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">SRH</span><span class="team-name">Sunrisers Hyderabad</span><span class="vs-badge">VS</span><span class="team-name">Rajasthan Royals</span><span class="team-abbr">RR</span></div><div class="match-meta"><div class="match-time">3:30 PM IST</div><div class="match-venue">Rajiv Gandhi Int'l Stadium, Hyderabad</div><div class="match-number">Match 2</div><div class="double-header-label">Double Header</div></div></div>
+    <div class="match-card"><div class="match-date-block"><div class="day">SUN</div><div class="date">23</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">MI</span><span class="team-name">Mumbai Indians</span><span class="vs-badge">VS</span><span class="team-name">Chennai Super Kings</span><span class="team-abbr">CSK</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Wankhede Stadium, Mumbai</div><div class="match-number">Match 3</div><div class="double-header-label">Double Header</div></div></div>
+    <div class="date-group-label">Monday, 24 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">MON</div><div class="date">24</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">LSG</span><span class="team-name">Lucknow Super Giants</span><span class="vs-badge">VS</span><span class="team-name">Delhi Capitals</span><span class="team-abbr">DC</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">VDCA Stadium, Visakhapatnam</div><div class="match-number">Match 4</div></div></div>
+    <div class="date-group-label">Tuesday, 25 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">TUE</div><div class="date">25</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">PBKS</span><span class="team-name">Punjab Kings</span><span class="vs-badge">VS</span><span class="team-name">Gujarat Titans</span><span class="team-abbr">GT</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Narendra Modi Stadium, Ahmedabad</div><div class="match-number">Match 5</div></div></div>
+    <div class="date-group-label">Wednesday, 26 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">WED</div><div class="date">26</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">RR</span><span class="team-name">Rajasthan Royals</span><span class="vs-badge">VS</span><span class="team-name">Kolkata Knight Riders</span><span class="team-abbr">KKR</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Sawai Mansingh Stadium, Jaipur</div><div class="match-number">Match 6</div></div></div>
+    <div class="date-group-label">Thursday, 27 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">THU</div><div class="date">27</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">SRH</span><span class="team-name">Sunrisers Hyderabad</span><span class="vs-badge">VS</span><span class="team-name">Lucknow Super Giants</span><span class="team-abbr">LSG</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Rajiv Gandhi Int'l Stadium, Hyderabad</div><div class="match-number">Match 7</div></div></div>
+    <div class="date-group-label">Friday, 28 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">FRI</div><div class="date">28</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">RCB</span><span class="team-name">Royal Challengers Bengaluru</span><span class="vs-badge">VS</span><span class="team-name">Chennai Super Kings</span><span class="team-abbr">CSK</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">M. Chinnaswamy Stadium, Bengaluru</div><div class="match-number">Match 8</div></div></div>
+    <div class="date-group-label">Saturday, 29 March 2025 — Double Header</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">SAT</div><div class="date">29</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">GT</span><span class="team-name">Gujarat Titans</span><span class="vs-badge">VS</span><span class="team-name">Mumbai Indians</span><span class="team-abbr">MI</span></div><div class="match-meta"><div class="match-time">3:30 PM IST</div><div class="match-venue">Narendra Modi Stadium, Ahmedabad</div><div class="match-number">Match 9</div><div class="double-header-label">Double Header</div></div></div>
+    <div class="match-card"><div class="match-date-block"><div class="day">SAT</div><div class="date">29</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">SRH</span><span class="team-name">Sunrisers Hyderabad</span><span class="vs-badge">VS</span><span class="team-name">Delhi Capitals</span><span class="team-abbr">DC</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Rajiv Gandhi Int'l Stadium, Hyderabad</div><div class="match-number">Match 10</div><div class="double-header-label">Double Header</div></div></div>
+    <div class="date-group-label">Sunday, 30 March 2025</div>
+    <div class="match-card"><div class="match-date-block"><div class="day">SUN</div><div class="date">30</div><div class="month">MAR</div></div><div class="match-teams"><span class="team-abbr">RR</span><span class="team-name">Rajasthan Royals</span><span class="vs-badge">VS</span><span class="team-name">Chennai Super Kings</span><span class="team-abbr">CSK</span></div><div class="match-meta"><div class="match-time">7:30 PM IST</div><div class="match-venue">Sawai Mansingh Stadium, Jaipur</div><div class="match-number">Match 11</div></div></div>
+  </div>
+  <p class="schedule-note">All times in IST · Full season ran Mar 22 – Jun 3, 2025</p>
+</section>
+</div>
+
+<!-- STATS -->
+<div class="page" data-page="stats">
+<section id="stats">
+  <div class="section-eyebrow">IPL 2025 · Final Stats</div>
+  <h2>Player Highlights</h2>
+  <div class="section-divider"></div>
+  <p class="stats-intro">March 22 – June 3, 2025 · 74 Matches</p>
+  <div class="champion-banner"><div><div class="champion-badge">🏆 IPL 2025 Champions</div><h3>Royal Challengers Bengaluru</h3><p>RCB clinched their maiden IPL title on June 3, 2025 at Narendra Modi Stadium, Ahmedabad — ending their 17-year wait for the trophy.</p></div></div>
+  <div class="stats-columns">
+    <div class="stats-table-block">
+      <h3><span class="cap-icon orange-cap">ORANGE CAP</span> Top Run Scorers</h3>
+      <div class="player-row"><div class="player-rank gold">1</div><div class="player-info"><div class="player-name">B Sai Sudharsan</div><div class="player-team">Gujarat Titans · LHB</div></div><div class="player-stat"><div class="stat-value">759</div><div class="stat-label">Runs</div><div class="stat-detail">Avg 54.21 · SR 156.17 · HS 108*</div></div></div>
+      <div class="player-row"><div class="player-rank">2</div><div class="player-info"><div class="player-name">Suryakumar Yadav</div><div class="player-team">Mumbai Indians · RHB</div></div><div class="player-stat"><div class="stat-value">717</div><div class="stat-label">Runs</div><div class="stat-detail">Avg 47.80 · SR 172.12</div></div></div>
+      <div class="player-row"><div class="player-rank">3</div><div class="player-info"><div class="player-name">Virat Kohli</div><div class="player-team">Royal Challengers Bengaluru · RHB</div></div><div class="player-stat"><div class="stat-value">657</div><div class="stat-label">Runs</div><div class="stat-detail">Avg 48.30 · SR 148.87</div></div></div>
+      <div class="player-row"><div class="player-rank">4</div><div class="player-info"><div class="player-name">Shubman Gill</div><div class="player-team">Gujarat Titans · RHB</div></div><div class="player-stat"><div class="stat-value">650</div><div class="stat-label">Runs</div><div class="stat-detail">Avg 46.43 · SR 151.40</div></div></div>
+      <div class="player-row"><div class="player-rank">5</div><div class="player-info"><div class="player-name">Nicholas Pooran</div><div class="player-team">Lucknow Super Giants · LHB</div></div><div class="player-stat"><div class="stat-value">636</div><div class="stat-label">Runs</div><div class="stat-detail">SR 218.48 · Explosive finisher</div></div></div>
+    </div>
+    <div class="stats-table-block">
+      <h3><span class="cap-icon purple-cap">PURPLE CAP</span> Top Wicket Takers</h3>
+      <div class="player-row"><div class="player-rank gold">1</div><div class="player-info"><div class="player-name">Prasidh Krishna</div><div class="player-team">Gujarat Titans · RFM</div></div><div class="player-stat"><div class="stat-value">25</div><div class="stat-label">Wickets</div><div class="stat-detail">Avg 19.52 · Best 4/41</div></div></div>
+      <div class="player-row"><div class="player-rank">2</div><div class="player-info"><div class="player-name">Trent Boult</div><div class="player-team">Mumbai Indians · LFM</div></div><div class="player-stat"><div class="stat-value">22</div><div class="stat-label">Wickets</div><div class="stat-detail">Economy 7.85</div></div></div>
+      <div class="player-row"><div class="player-rank">3</div><div class="player-info"><div class="player-name">Josh Hazlewood</div><div class="player-team">Royal Challengers Bengaluru · RF</div></div><div class="player-stat"><div class="stat-value">21</div><div class="stat-label">Wickets</div><div class="stat-detail">Economy 7.40</div></div></div>
+      <div class="player-row"><div class="player-rank">4</div><div class="player-info"><div class="player-name">Arshdeep Singh</div><div class="player-team">Punjab Kings · LFM</div></div><div class="player-stat"><div class="stat-value">21</div><div class="stat-label">Wickets</div><div class="stat-detail">3/40 in Final</div></div></div>
+      <div class="player-row"><div class="player-rank">5</div><div class="player-info"><div class="player-name">Noor Ahmad</div><div class="player-team">Chennai Super Kings · SLA</div></div><div class="player-stat"><div class="stat-value">20</div><div class="stat-label">Wickets</div><div class="stat-detail">Best 4/22</div></div></div>
+    </div>
+  </div>
+  <div class="section-sub-title">Season Milestones &amp; Notable Moments</div>
+  <div class="milestones">
+    <div class="milestone-card"><div class="milestone-label">Highest Score</div><div class="milestone-value">108* — Sai Sudharsan</div><div class="milestone-desc">GT opener anchored the batting lineup all season with a stunning unbeaten century.</div></div>
+    <div class="milestone-card"><div class="milestone-label">Best Figures</div><div class="milestone-value">5/17 — Hardik Pandya</div><div class="milestone-desc">MI captain produced the most explosive bowling display of IPL 2025 vs LSG.</div></div>
+    <div class="milestone-card"><div class="milestone-label">Fastest Fifty</div><div class="milestone-value">16 Balls — Pooran</div><div class="milestone-desc">LSG's Caribbean batter set the tournament alight with the season's quickest half-century.</div></div>
+    <div class="milestone-card"><div class="milestone-label">Most Sixes</div><div class="milestone-value">Nicholas Pooran · LSG</div><div class="milestone-desc">Top six-hitter, clearing the ropes at will all season at a SR of 218.48.</div></div>
+    <div class="milestone-card"><div class="milestone-label">Season MVP</div><div class="milestone-value">Krunal Pandya · RCB</div><div class="milestone-desc">Player of the Match in the final with match-winning figures of 2/17 in 4 overs.</div></div>
+    <div class="milestone-card"><div class="milestone-label">Final</div><div class="milestone-value">RCB win — Jun 3, 2025</div><div class="milestone-desc">Narendra Modi Stadium, Ahmedabad. RCB ended a 17-year drought to claim the title.</div></div>
+  </div>
+</section>
+</div>
+
+<!-- RESULTS -->
+<div class="page" data-page="results">
+<section id="results">
+  <div class="section-eyebrow">Opening Week</div>
+  <h2>Match Results</h2>
+  <div class="section-divider"></div>
+  <div class="results-grid">
+    <div class="result-card win-left"><div class="result-match-no"><div class="match-num">Match 1</div><div class="match-date-sm">Mar 22</div></div><div class="result-teams"><div class="result-team-row winner"><span class="abbr">KKR</span><span class="team-nm">Kolkata Knight Riders</span><span class="score">174/6</span></div><div class="result-divider"></div><div class="result-team-row loser"><span class="abbr">RCB</span><span class="team-nm">Royal Challengers Bengaluru</span><span class="score">163/8</span></div></div><div class="result-margin"><div class="win-by">KKR won by 11 runs</div><div class="result-venue">Eden Gardens, Kolkata</div></div></div>
+    <div class="result-card win-right"><div class="result-match-no"><div class="match-num">Match 2</div><div class="match-date-sm">Mar 23</div></div><div class="result-teams"><div class="result-team-row loser"><span class="abbr">SRH</span><span class="team-nm">Sunrisers Hyderabad</span><span class="score">188/5</span></div><div class="result-divider"></div><div class="result-team-row winner"><span class="abbr">RR</span><span class="team-nm">Rajasthan Royals</span><span class="score">191/3</span></div></div><div class="result-margin"><div class="win-by">RR won by 7 wkts</div><div class="result-venue">RGIS, Hyderabad</div></div></div>
+    <div class="result-card win-right"><div class="result-match-no"><div class="match-num">Match 3</div><div class="match-date-sm">Mar 23</div></div><div class="result-teams"><div class="result-team-row loser"><span class="abbr">MI</span><span class="team-nm">Mumbai Indians</span><span class="score">171/7</span></div><div class="result-divider"></div><div class="result-team-row winner"><span class="abbr">CSK</span><span class="team-nm">Chennai Super Kings</span><span class="score">172/5</span></div></div><div class="result-margin"><div class="win-by">CSK won by 5 wkts</div><div class="result-venue">Wankhede, Mumbai</div></div></div>
+    <div class="result-card win-left"><div class="result-match-no"><div class="match-num">Match 4</div><div class="match-date-sm">Mar 24</div></div><div class="result-teams"><div class="result-team-row winner"><span class="abbr">LSG</span><span class="team-nm">Lucknow Super Giants</span><span class="score">195/4</span></div><div class="result-divider"></div><div class="result-team-row loser"><span class="abbr">DC</span><span class="team-nm">Delhi Capitals</span><span class="score">181/9</span></div></div><div class="result-margin"><div class="win-by">LSG won by 14 runs</div><div class="result-venue">VDCA, Vizag</div></div></div>
+    <div class="result-card win-right"><div class="result-match-no"><div class="match-num">Match 5</div><div class="match-date-sm">Mar 25</div></div><div class="result-teams"><div class="result-team-row loser"><span class="abbr">PBKS</span><span class="team-nm">Punjab Kings</span><span class="score">168/7</span></div><div class="result-divider"></div><div class="result-team-row winner"><span class="abbr">GT</span><span class="team-nm">Gujarat Titans</span><span class="score">169/4</span></div></div><div class="result-margin"><div class="win-by">GT won by 6 wkts</div><div class="result-venue">NM Stadium, Ahmedabad</div></div></div>
+    <div class="result-card win-left"><div class="result-match-no"><div class="match-num">Match 6</div><div class="match-date-sm">Mar 26</div></div><div class="result-teams"><div class="result-team-row winner"><span class="abbr">RR</span><span class="team-nm">Rajasthan Royals</span><span class="score">185/5</span></div><div class="result-divider"></div><div class="result-team-row loser"><span class="abbr">KKR</span><span class="team-nm">Kolkata Knight Riders</span><span class="score">179/6</span></div></div><div class="result-margin"><div class="win-by">RR won by 6 runs</div><div class="result-venue">SMS Stadium, Jaipur</div></div></div>
+  </div>
+</section>
+</div>
+
+<!-- STANDINGS -->
+<div class="page" data-page="standings">
+<section id="standings">
+  <div class="section-eyebrow">IPL 2025</div>
+  <h2>Final Standings</h2>
+  <div class="section-divider"></div>
+  <div class="points-table-wrap">
+    <table class="points-table">
+      <thead><tr><th>#</th><th>Team</th><th>M</th><th>W</th><th>L</th><th>NR</th><th>NRR</th><th>PTS</th></tr></thead>
+      <tbody>
+        <tr class="playoff-zone"><td><span class="pos-num gold">1</span></td><td><div class="team-cell"><div><div class="team-short">PBKS <span class="playoff-tag">Q1</span></div><div class="team-full-name">Punjab Kings</div></div></div></td><td>14</td><td>9</td><td>4</td><td>1</td><td class="nrr-pos">+0.372</td><td class="pts-val">19</td></tr>
+        <tr class="playoff-zone"><td><span class="pos-num silver">2</span></td><td><div class="team-cell"><div><div class="team-short">RCB <span class="playoff-tag">Q1</span></div><div class="team-full-name">Royal Challengers Bengaluru</div></div></div></td><td>14</td><td>9</td><td>4</td><td>1</td><td class="nrr-pos">+0.288</td><td class="pts-val">19</td></tr>
+        <tr class="playoff-zone"><td><span class="pos-num bronze">3</span></td><td><div class="team-cell"><div><div class="team-short">GT <span class="playoff-tag">ELM</span></div><div class="team-full-name">Gujarat Titans</div></div></div></td><td>14</td><td>9</td><td>5</td><td>0</td><td class="nrr-pos">+0.215</td><td class="pts-val">18</td></tr>
+        <tr class="playoff-zone"><td><span class="pos-num q">4</span></td><td><div class="team-cell"><div><div class="team-short">MI <span class="playoff-tag">ELM</span></div><div class="team-full-name">Mumbai Indians</div></div></div></td><td>14</td><td>8</td><td>6</td><td>0</td><td class="nrr-pos">+0.143</td><td class="pts-val">16</td></tr>
+        <tr class="eliminated"><td><span class="pos-num out">5</span></td><td><div class="team-cell"><div><div class="team-short">DC</div><div class="team-full-name">Delhi Capitals</div></div></div></td><td>14</td><td>7</td><td>6</td><td>1</td><td class="nrr-pos">+0.097</td><td class="pts-val">15</td></tr>
+        <tr class="eliminated"><td><span class="pos-num out">6</span></td><td><div class="team-cell"><div><div class="team-short">LSG</div><div class="team-full-name">Lucknow Super Giants</div></div></div></td><td>14</td><td>6</td><td>7</td><td>1</td><td class="nrr-neg">-0.058</td><td class="pts-val">13</td></tr>
+        <tr class="eliminated"><td><span class="pos-num out">7</span></td><td><div class="team-cell"><div><div class="team-short">SRH</div><div class="team-full-name">Sunrisers Hyderabad</div></div></div></td><td>14</td><td>6</td><td>8</td><td>0</td><td class="nrr-neg">-0.182</td><td class="pts-val">12</td></tr>
+        <tr class="eliminated"><td><span class="pos-num out">8</span></td><td><div class="team-cell"><div><div class="team-short">KKR</div><div class="team-full-name">Kolkata Knight Riders</div></div></div></td><td>14</td><td>5</td><td>7</td><td>2</td><td class="nrr-neg">-0.241</td><td class="pts-val">12</td></tr>
+        <tr class="eliminated"><td><span class="pos-num out">9</span></td><td><div class="team-cell"><div><div class="team-short">RR</div><div class="team-full-name">Rajasthan Royals</div></div></div></td><td>14</td><td>4</td><td>10</td><td>0</td><td class="nrr-neg">-0.419</td><td class="pts-val">8</td></tr>
+        <tr class="eliminated"><td><span class="pos-num out">10</span></td><td><div class="team-cell"><div><div class="team-short">CSK</div><div class="team-full-name">Chennai Super Kings</div></div></div></td><td>14</td><td>4</td><td>10</td><td>0</td><td class="nrr-neg">-0.512</td><td class="pts-val">8</td></tr>
+      </tbody>
+    </table>
+    <div class="table-legend">
+      <span><span class="legend-dot" style="background:#22c55e;"></span>Qualified for Playoffs</span>
+      <span><span class="legend-dot" style="background:rgba(255,255,255,.2);"></span>Eliminated</span>
+      <span>Q1 = Qualifier 1 · ELM = Eliminator · NRR = Net Run Rate</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PROFILES -->
+<div class="page" data-page="profiles">
+<section id="profiles">
+  <div class="section-eyebrow">IPL 2025</div>
+  <h2>Star Players</h2>
+  <div class="section-divider"></div>
+  <div class="profiles-grid">
+    <div class="profile-card"><div class="profile-header"><div class="profile-avatar">SS</div><div><div class="p-name">B Sai Sudharsan</div><div class="p-role">🟠 Orange Cap · Opener · LHB</div><div class="p-team">Gujarat Titans</div></div></div><p class="profile-bio">The elegant left-handed opener from Tamil Nadu was the standout batter of IPL 2025. Sudharsan combined classical technique with modern aggression, topping the run charts with 759 runs and also winning the Emerging Player award — a rare double.</p><div class="profile-stats-row"><div class="profile-stat-box"><div class="ps-val">759</div><div class="ps-lbl">Runs</div></div><div class="profile-stat-box"><div class="ps-val">54.21</div><div class="ps-lbl">Average</div></div><div class="profile-stat-box"><div class="ps-val">156.17</div><div class="ps-lbl">Strike Rate</div></div></div></div>
+    <div class="profile-card"><div class="profile-header"><div class="profile-avatar">SKY</div><div><div class="p-name">Suryakumar Yadav</div><div class="p-role">⭐ MVP · Middle Order · RHB</div><div class="p-team">Mumbai Indians</div></div></div><p class="profile-bio">The 360-degree batter and India's T20 captain lit up IPL 2025 with breathtaking stroke-play. His 717 runs came at a stunning strike rate of 167.91, and his all-round impact earned him the Most Valuable Player award with 320.5 points.</p><div class="profile-stats-row"><div class="profile-stat-box"><div class="ps-val">717</div><div class="ps-lbl">Runs</div></div><div class="profile-stat-box"><div class="ps-val">167.91</div><div class="ps-lbl">Strike Rate</div></div><div class="profile-stat-box"><div class="ps-val">38</div><div class="ps-lbl">Sixes</div></div></div></div>
+    <div class="profile-card"><div class="profile-header"><div class="profile-avatar">VK</div><div><div class="p-name">Virat Kohli</div><div class="p-role">🏆 IPL Champion · Opener · RHB</div><div class="p-team">Royal Challengers Bengaluru</div></div></div><p class="profile-bio">After 17 years of heartbreak, Kohli finally lifted the IPL trophy in 2025. His 657 runs were a masterclass in building match-winning partnerships. He scored a crucial 43 off 35 in the final, cementing his place as RCB's greatest ever player.</p><div class="profile-stats-row"><div class="profile-stat-box"><div class="ps-val">657</div><div class="ps-lbl">Runs</div></div><div class="profile-stat-box"><div class="ps-val">48.30</div><div class="ps-lbl">Average</div></div><div class="profile-stat-box"><div class="ps-val">66</div><div class="ps-lbl">Fours</div></div></div></div>
+    <div class="profile-card"><div class="profile-header"><div class="profile-avatar">PK</div><div><div class="p-name">Prasidh Krishna</div><div class="p-role">🟣 Purple Cap · Pacer · RFM</div><div class="p-team">Gujarat Titans</div></div></div><p class="profile-bio">The tall Karnataka pacer was the most dangerous bowler of the season, claiming 25 wickets at an average of 19.52. His ability to extract bounce on any surface and deadly yorkers in the death made him almost unplayable at his best.</p><div class="profile-stats-row"><div class="profile-stat-box"><div class="ps-val">25</div><div class="ps-lbl">Wickets</div></div><div class="profile-stat-box"><div class="ps-val">19.52</div><div class="ps-lbl">Average</div></div><div class="profile-stat-box"><div class="ps-val">4/41</div><div class="ps-lbl">Best</div></div></div></div>
+    <div class="profile-card"><div class="profile-header"><div class="profile-avatar">NP</div><div><div class="p-name">Nicholas Pooran</div><div class="p-role">💥 Most Sixes · WK-Batter · LHB</div><div class="p-team">Lucknow Super Giants</div></div></div><p class="profile-bio">The explosive West Indian wicketkeeper-batter was the most feared finisher of IPL 2025. Pooran's 636 runs came at a jaw-dropping strike rate of 218.48, and he smashed the fastest fifty of the season in just 16 balls.</p><div class="profile-stats-row"><div class="profile-stat-box"><div class="ps-val">636</div><div class="ps-lbl">Runs</div></div><div class="profile-stat-box"><div class="ps-val">218.48</div><div class="ps-lbl">Strike Rate</div></div><div class="profile-stat-box"><div class="ps-val">16</div><div class="ps-lbl">Fastest 50</div></div></div></div>
+    <div class="profile-card"><div class="profile-header"><div class="profile-avatar">VS</div><div><div class="p-name">Vaibhav Suryavanshi</div><div class="p-role">⚡ Super Striker · Opener · RHB</div><div class="p-team">Rajasthan Royals</div></div></div><p class="profile-bio">IPL's youngest ever player took the tournament by storm. The teenage prodigy scored 252 runs in just 7 matches at a staggering SR of 206.55, winning the Super Striker of the Season award and announcing himself as the future of Indian cricket.</p><div class="profile-stats-row"><div class="profile-stat-box"><div class="ps-val">252</div><div class="ps-lbl">Runs</div></div><div class="profile-stat-box"><div class="ps-val">206.55</div><div class="ps-lbl">Strike Rate</div></div><div class="profile-stat-box"><div class="ps-val">36.00</div><div class="ps-lbl">Average</div></div></div></div>
+  </div>
+</section>
+</div>
+
+<!-- AWARDS -->
+<div class="page" data-page="awards">
+<section id="awards">
+  <div class="section-eyebrow">IPL 2025</div>
+  <h2>Award Winners</h2>
+  <div class="section-divider"></div>
+  <div class="awards-grid">
+    <div class="award-card"><div class="award-icon">🏆</div><div class="award-title">IPL 2025 Champions</div><div class="award-winner">Royal Challengers Bengaluru</div><div class="award-team">Prize: ₹20 Crore</div><div class="award-detail">Maiden IPL title for RCB, beating Punjab Kings by 6 runs in a nail-biting final on June 3, 2025.</div></div>
+    <div class="award-card"><div class="award-icon">🟠</div><div class="award-title">Orange Cap — Most Runs</div><div class="award-winner">B Sai Sudharsan</div><div class="award-team">Gujarat Titans · ₹10 Lakh</div><div class="award-detail">759 runs at avg 54.21 · SR 156.17 · 1 century, 6 fifties. Also won Fantasy King and Most Fours (88).</div></div>
+    <div class="award-card"><div class="award-icon">🟣</div><div class="award-title">Purple Cap — Most Wickets</div><div class="award-winner">Prasidh Krishna</div><div class="award-team">Gujarat Titans · ₹10 Lakh</div><div class="award-detail">25 wickets in 15 matches at avg 19.52. Finished 1 wicket ahead of runner-up Noor Ahmad of CSK.</div></div>
+    <div class="award-card"><div class="award-icon">⭐</div><div class="award-title">Most Valuable Player</div><div class="award-winner">Suryakumar Yadav</div><div class="award-team">Mumbai Indians · ₹15 Lakh</div><div class="award-detail">320.5 points · 717 runs at SR 167.91 · 69 fours, 38 sixes, 6 catches across 16 matches.</div></div>
+    <div class="award-card"><div class="award-icon">🌟</div><div class="award-title">Emerging Player</div><div class="award-winner">B Sai Sudharsan</div><div class="award-team">Gujarat Titans · ₹10 Lakh</div><div class="award-detail">Only the second player to win both the Orange Cap and Emerging Player award in the same season.</div></div>
+    <div class="award-card"><div class="award-icon">⚡</div><div class="award-title">Super Striker of the Season</div><div class="award-winner">Vaibhav Suryavanshi</div><div class="award-team">Rajasthan Royals · ₹10 Lakh</div><div class="award-detail">252 runs in 7 matches at SR 206.55 — IPL's youngest ever player took the tournament by storm.</div></div>
+    <div class="award-card"><div class="award-icon">💥</div><div class="award-title">Super Sixes of the Season</div><div class="award-winner">Nicholas Pooran</div><div class="award-team">Lucknow Super Giants · ₹10 Lakh</div><div class="award-detail">Most sixes hit in IPL 2025, clearing the ropes regularly at a strike rate of 218.48.</div></div>
+    <div class="award-card"><div class="award-icon">🫳</div><div class="award-title">Catch of the Season</div><div class="award-winner">Kamindu Mendis</div><div class="award-team">Sunrisers Hyderabad</div><div class="award-detail">Stunning reflex catch voted the best fielding moment of the entire IPL 2025 season.</div></div>
+    <div class="award-card"><div class="award-icon">🎯</div><div class="award-title">Most Dot Balls</div><div class="award-winner">Mohammed Siraj</div><div class="award-team">Gujarat Titans · ₹10 Lakh</div><div class="award-detail">Most dot balls of the tournament, strangling opposition batters with relentless accuracy.</div></div>
+    <div class="award-card"><div class="award-icon">🤝</div><div class="award-title">Fair Play Award</div><div class="award-winner">Chennai Super Kings</div><div class="award-team">CSK — Record 7th time winners</div><div class="award-detail">Despite a tough season, CSK maintained exemplary conduct — winning Fair Play for a record 7th time.</div></div>
+    <div class="award-card"><div class="award-icon">🎖️</div><div class="award-title">Player of the Final</div><div class="award-winner">Krunal Pandya</div><div class="award-team">Royal Challengers Bengaluru</div><div class="award-detail">Match-winning 2/17 in 4 overs, dismissing key PBKS batters to seal RCB's maiden title.</div></div>
+    <div class="award-card"><div class="award-icon">🥈</div><div class="award-title">Runners-Up</div><div class="award-winner">Punjab Kings</div><div class="award-team">Prize: ₹12.5 Crore</div><div class="award-detail">PBKS topped the league stage but fell 6 runs short in a last-ball thriller final at Ahmedabad.</div></div>
+  </div>
+</section>
+</div>
+
+<!-- POLL -->
+<div class="page" data-page="poll">
+<section id="poll">
+  <div class="section-eyebrow">Have Your Say</div>
+  <h2>Fan Poll</h2>
+  <div class="section-divider"></div>
+  <div class="poll-wrap">
+    <div class="poll-question">Who was YOUR Player of IPL 2025?</div>
+    <div class="poll-sub">Cast your vote · Results update live in your session</div>
+    <div class="poll-options" id="pollOptions"></div>
+    <p class="poll-voted-note" id="pollNote"></p>
+  </div>
+</section>
+</div>
+
+<script>
+/* PAGE ROUTER */
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('active'));
+  const t=document.querySelector(`.page[data-page="${id}"]`);
+  if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+  document.querySelectorAll(`.nav-link[data-page="${id}"]`).forEach(a=>a.classList.add('active'));
+  if(id==='home')startCounters();
+}
+document.addEventListener('click',e=>{
+  const l=e.target.closest('.nav-link');
+  if(l){e.preventDefault();const p=l.dataset.page;if(p)showPage(p);}
+});
+
+/* LIVE CLOCK */
+function tick(){
+  const n=new Date(),h=n.getHours()%12||12,m=n.getMinutes(),s=n.getSeconds(),ap=n.getHours()>=12?'PM':'AM';
+  document.getElementById('liveClock').textContent=`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ap}`;
+}
+setInterval(tick,1000);tick();
+
+/* COUNTER ANIMATION */
+function animateCounter(el,target,dur){
+  let v=0;const step=target/(dur/16);
+  const t=setInterval(()=>{v+=step;if(v>=target){el.textContent=target;clearInterval(t);return;}el.textContent=Math.floor(v);},16);
+}
+function startCounters(){document.querySelectorAll('[data-count]').forEach(el=>animateCounter(el,+el.dataset.count,1200));}
+startCounters();
+
+/* FAN POLL */
+const pollData=[
+  {abbr:'MSD',name:'M.S Dhoni',team:'CSK',votes:4820},
+  {abbr:'SS',name:'Rohit Sharma',team:'Mumbai Indians',votes:4311},
+  {abbr:'VK',name:'Virat Kohli',team:'RCB',votes:3975},
+  {abbr:'NP',name:'Nicholas Pooran',team:'LSG',votes:2140},
+  {abbr:'VS',name:'Vaibhav Suryavanshi',team:'Rajasthan Royals',votes:1887},
+  {abbr:'SKY',name:'Suryakumar Yadav',team:'Mumbai Indians',votes:1430},
+];
+let voted=false,votes=pollData.map(p=>p.votes);
+function total(){return votes.reduce((a,b)=>a+b,0);}
+function render(sel){
+  const tot=total(),c=document.getElementById('pollOptions');
+  c.innerHTML='';
+  votes.forEach((v,i)=>{
+    const pct=Math.round(v/tot*100),o=document.createElement('div');
+    o.className='poll-option'+(i===sel?' selected':'');
+    o.innerHTML=`<div class="poll-bar" style="width:${voted?pct:0}%"></div><div class="poll-option-inner"><span class="poll-team-abbr">${pollData[i].abbr}</span><span class="poll-team-name">${pollData[i].name} <span style="font-size:.68rem;opacity:.38;">· ${pollData[i].team}</span></span>${voted?`<div><div class="poll-pct">${pct}%</div><div class="poll-count">${v.toLocaleString()} votes</div></div>`:''}</div>`;
+    if(!voted)o.addEventListener('click',()=>{voted=true;votes[i]++;render(i);document.getElementById('pollNote').innerHTML=`You voted for <span>${pollData[i].name}</span> 🎉 · ${total().toLocaleString()} total votes`;});
+    c.appendChild(o);
+  });
+}
+render(-1);
+</script>
+
+<footer>
+  <div class="footer-logo">IPL 2025</div>
+  <p>© 2025 Indian Premier League · Designed by Ashrith Reddy.T</p>
+</footer>
+</body>
+</html>
